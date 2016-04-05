@@ -3,3 +3,6 @@ deps
 dev
 ebin
 log
+_*
+.rebar3
+*.beam

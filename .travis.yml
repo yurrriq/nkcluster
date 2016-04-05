@@ -1,0 +1,12 @@
+language: erlang
+install: true
+env: PATH=".:$PATH"
+before_script:
+  - wget https://s3.amazonaws.com/rebar3/rebar3
+  - chmod 755 rebar3
+script: make tests
+notifications:
+  email: false
+otp_release:
+  - 18.2
+  - 17.5

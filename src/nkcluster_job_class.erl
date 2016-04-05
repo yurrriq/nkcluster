@@ -29,8 +29,8 @@
 %% Callbacks
 %% ===================================================================
 
-%% @doc This callback is called at the worker side, when a new request has arrived.
-%% You must supply an inmediate response. 
+%% This callback is called at the worker side, when a new request has arrived.
+%% You must supply an inmediate response.
 %% If you are going to spend more than a few miliseconds and don't want to block
 %% the network channel, can return 'defer' and call nkcluster_jobs:reply/2 at a
 %% later time. However, you should consider using a task instead.
@@ -40,18 +40,19 @@
     {reply, nkcluster:reply()} | {error, term()} | defer.
  
 
-%% @doc This callback is called at the worker side, when a new task is requested to start.
+
+%% This callback is called at the worker side, when a new task is requested to start.
 %% You should start a new Erlang process and return its pid(), and, optionally,
 %% a reply to send back to the caller.
 %% You must return {error, term()} if you couldn't start the process.
 %% NkCLUSTER will send an event {nkcluster, {task_started, TaskId}} to the class.
-%% When the process ends, an event {nkcluster, {task_stopped, Reason, TaskId}} 
+%% When the process ends, an event {nkcluster, {task_stopped, Reason, TaskId}}
 %% will be sent.
 -callback task(nkcluster:task_id(), nkcluster:task()) ->
     {ok, pid()} | {ok, nkcluster:reply(), pid()} | {error, term()}.
 
 
-%% @doc This callback is called at the worker side, when a command is sent to a
+%% This callback is called at the worker side, when a command is sent to a
 %% currenly running task. The pid() of the task is included.
 %% You must supply and inmediate response.
 %% If you are going to spend more than a few miliseconds and don't want to block
@@ -63,7 +64,7 @@
     {reply, nkcluster:reply()} | {error, term()} | defer.
 
 
-%% @doc This callback is called at the worker side, for each started task, 
+%% This callback is called at the worker side, for each started task,
 %% when the node status changes.
 %% If the status changes to stopping, the task should stop as soon as possible,
 %% in order to shut down the node.
@@ -71,7 +72,7 @@
     ok.
 
 
-%% @doc This callback is called at the control side, when an event is sent from
+%% This callback is called at the control side, when an event is sent from
 %% a task or request at the worker side.
 %% NkCLUSTER will also sent the following events:
 %%

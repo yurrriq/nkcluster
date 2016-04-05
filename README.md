@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yurrriq/nkcluster.svg?branch=master)](https://travis-ci.org/yurrriq/nkcluster)
+
 * [Intoduction](#introduction)
 * [Quick Start](#quick-start)
 * [Use cases and deployment scenarios](#use-cases-and-deployment-scenarios)
