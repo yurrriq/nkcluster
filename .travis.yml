@@ -4,7 +4,7 @@ env: PATH=".:$PATH"
 before_script:
   - wget https://s3.amazonaws.com/rebar3/rebar3
   - chmod 755 rebar3
-script: make tests
+script: make compile tests
 notifications:
   email: false
 otp_release:
